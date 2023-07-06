@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticketbox</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+</head>
+<body>
+  <header class="header">
+    <div class="brand-box">
+      <span class="brand">Example Brand</span>
+    </div>
+    
+  </header>
+
+  
+  <div id="app">
+    <div class="testbox">
+      <form >
+        <i class="fas fa-chevron-left" style="cursor: pointer;"></i>     
+        <h1 id="header1">Data Dashboard</h1>
+        <div class="title-block">
+          <label for="options" class="optclass">Выберите элемент</label>
+          <select id="options" v-model="selectedObjId">
+            <option v-for="obj in objectsWId" :value="obj.id" :key="obj.id">{{ obj.name }}</option>
+          </select>
+        </div>
+        <div class="form-text">
+          <label for="change" class="chanclass">Введите новое значение:</label>
+          <input type="text" v-model="objectsWId[selectedObjId - 1].value">
+        </div>
+          <div class="values">
+            <p class="znach">Значение элемента <span class="moustache">{{ objectsWId[selectedObjId - 1].name }}</span>:<br><br><span class="moustache">{{ objectsWId[selectedObjId - 1].value }}</span></p>
+            <p class="znach">Значение элемента <span class="moustache">{{ objectsWId[selectedObjId - 1].name }}</span> в массиве:<br><br><span class="moustache">{{ objectsWId[selectedObjId - 1]}}</span></p>
+          </div>
+      </form>
+    </div>
+  </div>
+  <script src="./js/app.js"></script>
+
+</body>
+</html>
